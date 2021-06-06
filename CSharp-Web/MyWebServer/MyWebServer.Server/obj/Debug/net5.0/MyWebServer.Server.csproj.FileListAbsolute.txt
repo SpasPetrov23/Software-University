@@ -1,0 +1,12 @@
+C:\Users\Spas\source\repos\MyWebServer\MyWebServer.Server\bin\Debug\net5.0\MyWebServer.Server.deps.json
+C:\Users\Spas\source\repos\MyWebServer\MyWebServer.Server\bin\Debug\net5.0\MyWebServer.Server.dll
+C:\Users\Spas\source\repos\MyWebServer\MyWebServer.Server\bin\Debug\net5.0\ref\MyWebServer.Server.dll
+C:\Users\Spas\source\repos\MyWebServer\MyWebServer.Server\bin\Debug\net5.0\MyWebServer.Server.pdb
+C:\Users\Spas\source\repos\MyWebServer\MyWebServer.Server\obj\Debug\net5.0\MyWebServer.Server.csproj.AssemblyReference.cache
+C:\Users\Spas\source\repos\MyWebServer\MyWebServer.Server\obj\Debug\net5.0\MyWebServer.Server.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Spas\source\repos\MyWebServer\MyWebServer.Server\obj\Debug\net5.0\MyWebServer.Server.AssemblyInfoInputs.cache
+C:\Users\Spas\source\repos\MyWebServer\MyWebServer.Server\obj\Debug\net5.0\MyWebServer.Server.AssemblyInfo.cs
+C:\Users\Spas\source\repos\MyWebServer\MyWebServer.Server\obj\Debug\net5.0\MyWebServer.Server.csproj.CoreCompileInputs.cache
+C:\Users\Spas\source\repos\MyWebServer\MyWebServer.Server\obj\Debug\net5.0\MyWebServer.Server.dll
+C:\Users\Spas\source\repos\MyWebServer\MyWebServer.Server\obj\Debug\net5.0\ref\MyWebServer.Server.dll
+C:\Users\Spas\source\repos\MyWebServer\MyWebServer.Server\obj\Debug\net5.0\MyWebServer.Server.pdb

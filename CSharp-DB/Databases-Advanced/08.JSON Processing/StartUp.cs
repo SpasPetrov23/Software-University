@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using AutoMapper;
+using Castle.DynamicProxy.Contributors;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using ProductShop.Data;
@@ -31,10 +32,56 @@ namespace ProductShop
             ImportCategories(productShopContext, categoriesJson);
             ImportCategoryProducts(productShopContext, categoriesProductsJson);
             GetProductsInRange(productShopContext);
+            GetSoldProducts(productShopContext);
+            GetCategoriesByProductsCount(productShopContext);
 
-            var result = GetSoldProducts(productShopContext);
+            var result = GetUsersWithProducts(productShopContext);
             Console.WriteLine(result);
         }
+        //Query 7. Export Users and Products
+        public static string GetUsersWithProducts(ProductShopContext context)
+        {
+
+            var users = context.Users
+                .Include(x => x.ProductsSold)
+                .ToList()
+                .Where(u => u.ProductsSold.Any(p => p.BuyerId != null))
+                .Select(u => new
+                {
+                    firstName = u.FirstName,
+                    lastName = u.LastName,
+                    age = u.Age,
+                    soldProducts = new
+                    {
+                        count = u.ProductsSold.Where(p => p.BuyerId != null).Count(),
+                        products = u.ProductsSold.Where(p => p.BuyerId != null).Select(p => new
+                        {
+                            name = p.Name,
+                            price = p.Price
+                        })
+                    }
+                })
+                .OrderByDescending(u => u.soldProducts.products.Count())
+                .ToList();
+
+            var finalObject = new
+            {
+                usersCount = context.Users
+                    .Where(u => u.ProductsSold
+                    .Any(p => p.BuyerId != null))
+                    .Count(),
+                users = users
+            };
+
+            var jsonSettings = new JsonSerializerSettings
+            {
+                NullValueHandling = NullValueHandling.Ignore
+            };
+
+            var result = JsonConvert.SerializeObject(finalObject, Formatting.Indented, jsonSettings);
+            return result;
+        }
+
         //Export Categories by Products Count
         public static string GetCategoriesByProductsCount(ProductShopContext context)
         {
@@ -43,7 +90,14 @@ namespace ProductShop
                 {
                     category = x.Name,
                     productsCount = x.CategoryProducts.Count,
-                });
+                    averagePrice = x.CategoryProducts.Average(cp => cp.Product.Price).ToString("F2"),
+                    totalRevenue = x.CategoryProducts.Sum(cp => cp.Product.Price).ToString("F2")
+                })
+                .OrderByDescending(x => x.productsCount)
+                .ToList();
+
+            var result = JsonConvert.SerializeObject(categories, Formatting.Indented);
+            return result;
         }
 
         //Query 6. Export Successfully Sold Products
