@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "xxRqUHPmYbe6x+Om/fItdLBB5nocVa1fH64DkRGzFsOiK7RFRlGEuq6pUyJDMY3WVN+dKtl4KAu2tILleL6jXQ==",
+  "dgSpecHash": "8c91GHlU/jYAeeC+54r5GMOfX0GoTEznwa0ykQt1P4iRhvyd5slrwuW9/Sarktls43ie2q9nXTLJy64RTyQyzw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Spas\\source\\repos\\MyWebServer\\MyWebServer\\MyWebServer.csproj",
+  "projectFilePath": "C:\\Users\\Spas\\Software_University\\CSharp-Web\\MyWebServer\\MyWebServer\\MyWebServer.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

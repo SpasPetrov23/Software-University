@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Spas\\source\\repos\\MyWebServer\\MyWebServer\\MyWebServer.csproj": {}
+    "C:\\Users\\Spas\\Software_University\\CSharp-Web\\MyWebServer\\MyWebServer\\MyWebServer.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Spas\\source\\repos\\MyWebServer\\MyWebServer.Server\\MyWebServer.Server.csproj": {
+    "C:\\Users\\Spas\\Software_University\\CSharp-Web\\MyWebServer\\MyWebServer.Server\\MyWebServer.Server.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Spas\\source\\repos\\MyWebServer\\MyWebServer.Server\\MyWebServer.Server.csproj",
+        "projectUniqueName": "C:\\Users\\Spas\\Software_University\\CSharp-Web\\MyWebServer\\MyWebServer.Server\\MyWebServer.Server.csproj",
         "projectName": "MyWebServer.Server",
-        "projectPath": "C:\\Users\\Spas\\source\\repos\\MyWebServer\\MyWebServer.Server\\MyWebServer.Server.csproj",
+        "projectPath": "C:\\Users\\Spas\\Software_University\\CSharp-Web\\MyWebServer\\MyWebServer.Server\\MyWebServer.Server.csproj",
         "packagesPath": "C:\\Users\\Spas\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Spas\\source\\repos\\MyWebServer\\MyWebServer.Server\\obj\\",
+        "outputPath": "C:\\Users\\Spas\\Software_University\\CSharp-Web\\MyWebServer\\MyWebServer.Server\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -61,14 +61,14 @@
         }
       }
     },
-    "C:\\Users\\Spas\\source\\repos\\MyWebServer\\MyWebServer\\MyWebServer.csproj": {
+    "C:\\Users\\Spas\\Software_University\\CSharp-Web\\MyWebServer\\MyWebServer\\MyWebServer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Spas\\source\\repos\\MyWebServer\\MyWebServer\\MyWebServer.csproj",
+        "projectUniqueName": "C:\\Users\\Spas\\Software_University\\CSharp-Web\\MyWebServer\\MyWebServer\\MyWebServer.csproj",
         "projectName": "MyWebServer",
-        "projectPath": "C:\\Users\\Spas\\source\\repos\\MyWebServer\\MyWebServer\\MyWebServer.csproj",
+        "projectPath": "C:\\Users\\Spas\\Software_University\\CSharp-Web\\MyWebServer\\MyWebServer\\MyWebServer.csproj",
         "packagesPath": "C:\\Users\\Spas\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Spas\\source\\repos\\MyWebServer\\MyWebServer\\obj\\",
+        "outputPath": "C:\\Users\\Spas\\Software_University\\CSharp-Web\\MyWebServer\\MyWebServer\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -88,8 +88,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\Spas\\source\\repos\\MyWebServer\\MyWebServer.Server\\MyWebServer.Server.csproj": {
-                "projectPath": "C:\\Users\\Spas\\source\\repos\\MyWebServer\\MyWebServer.Server\\MyWebServer.Server.csproj"
+              "C:\\Users\\Spas\\Software_University\\CSharp-Web\\MyWebServer\\MyWebServer.Server\\MyWebServer.Server.csproj": {
+                "projectPath": "C:\\Users\\Spas\\Software_University\\CSharp-Web\\MyWebServer\\MyWebServer.Server\\MyWebServer.Server.csproj"
               }
             }
           }
