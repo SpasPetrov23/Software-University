@@ -37,3 +37,6 @@ C:\Users\Spas\Software_University\CSharp-Web\MyWebServer\MyWebServer.App\bin\Deb
 C:\Users\Spas\Software_University\CSharp-Web\MyWebServer\MyWebServer.App\obj\Debug\net5.0\MyWebServer.App.csproj.CopyComplete
 C:\Users\Spas\Software_University\CSharp-Web\MyWebServer\MyWebServer.App\obj\Debug\net5.0\MyWebServer.App.genruntimeconfig.cache
 C:\Users\Spas\Software_University\CSharp-Web\MyWebServer\MyWebServer.App\bin\Debug\net5.0\Views\Animals\Dogs.cshtml
+C:\Users\Spas\Software_University\CSharp-Web\MyWebServer\MyWebServer.App\bin\Debug\net5.0\Views\Animals\Rabbits.cshtml
+C:\Users\Spas\Software_University\CSharp-Web\MyWebServer\MyWebServer.App\bin\Debug\net5.0\Views\Animals\Wild\Turtles.cshtml
+C:\Users\Spas\Software_University\CSharp-Web\MyWebServer\MyWebServer.App\bin\Debug\net5.0\Views\Cats\Create.cshtml

@@ -2,6 +2,7 @@
 {
     using MyWebServer.Http;
     using MyWebServer.Controllers;
+    using MyWebServer.App.Models.Animals;
 
     public class AnimalsController : Controller
     {
@@ -13,6 +14,7 @@
         public HttpResponse Cats()
         {
             const string nameKey = "Name";
+            const string ageKey = "Age";
 
             var query = this.Request.Query;
 
@@ -20,12 +22,23 @@
                 ? query[nameKey]
                 : "the cats";
 
-            var result = $"<h1>Hello from { catName}!</h1>";
+            var catAge = query.ContainsKey(ageKey)
+                ? int.Parse(query [nameKey])
+                : 0;
 
-            return Html(result);
+            var viewModel = new CatViewModel
+            {
+                Name = catName,
+                Age = catAge
+            };
+
+            return View(viewModel);
         }
+
         public HttpResponse Dogs() => View();
+
         public HttpResponse Bunnies() => View("Rabbits");
+
         public HttpResponse Turtles() => View("Animals/Wild/LotsOfTurtles");
     }
 }
