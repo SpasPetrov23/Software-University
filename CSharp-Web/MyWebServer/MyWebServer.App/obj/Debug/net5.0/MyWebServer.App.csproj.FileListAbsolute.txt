@@ -40,3 +40,4 @@ C:\Users\Spas\Software_University\CSharp-Web\MyWebServer\MyWebServer.App\bin\Deb
 C:\Users\Spas\Software_University\CSharp-Web\MyWebServer\MyWebServer.App\bin\Debug\net5.0\Views\Animals\Rabbits.cshtml
 C:\Users\Spas\Software_University\CSharp-Web\MyWebServer\MyWebServer.App\bin\Debug\net5.0\Views\Animals\Wild\Turtles.cshtml
 C:\Users\Spas\Software_University\CSharp-Web\MyWebServer\MyWebServer.App\bin\Debug\net5.0\Views\Cats\Create.cshtml
+C:\Users\Spas\Software_University\CSharp-Web\MyWebServer\MyWebServer.App\bin\Debug\net5.0\Views\Animals\Cats.cshtml
