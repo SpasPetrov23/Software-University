@@ -1,7 +1,5 @@
 ﻿namespace MyWebServer.Results
 {
-    using System.Text;
-    using MyWebServer.Common;
     using MyWebServer.Http;
 
     public class ContentResult : ActionResult
