@@ -39,41 +39,40 @@
 
         public async Task Start()
         {
-
             this.listener.Start();
 
             Console.WriteLine($"Server started on port {port}...");
             Console.WriteLine($"Awaiting requests...");
 
-            //The while(true) loop allows for the Server to receive multiple requests without closing down.
             while (true)
             {
-                //The Async method here allows for multiple people to connect to the server without waiting for eachother.
                 var connection = await this.listener.AcceptTcpClientAsync();
 
-                //The stream allows for a stream of bytes to be sent (.Write()) or received (.Read()) to the browser.
-                var networkStream = connection.GetStream();
-
-                var requestText = await this.ReadRequest(networkStream);
-
-                try
+                _ = Task.Run(async () => 
                 {
-                    var request = HttpRequest.Parse(requestText);
+                    var networkStream = connection.GetStream();
 
-                    var response = this.routingTable.ExecuteRequest(request);
+                    var requestText = await this.ReadRequest(networkStream);
 
-                    this.PrepareSession(request, response);
+                    try
+                    {
+                        var request = HttpRequest.Parse(requestText);
 
-                    this.LogPipeLine(request, response);
+                        var response = this.routingTable.ExecuteRequest(request);
 
-                    await WriteResponse(networkStream, response);
-                }
-                catch (Exception exception)
-                {
-                    await HandleError(networkStream, exception);
-                }
-                
-                connection.Close();
+                        this.PrepareSession(request, response);
+
+                        this.LogPipeLine(request, response);
+
+                        await WriteResponse(networkStream, response);
+                    }
+                    catch (Exception exception)
+                    {
+                        await HandleError(networkStream, exception);
+                    }
+
+                    connection.Close();
+                });
             }
         }
 
