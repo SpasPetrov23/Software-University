@@ -37,7 +37,7 @@
                 viewConent = this.PopulateModel(viewConent, model);
             }
 
-            this.PrepareContent(viewConent, HttpContentType.Html);
+            this.SetContent(viewConent, HttpContentType.Html);
         }
 
         private void PrepareMissingViewError(string viewPath)
@@ -46,7 +46,7 @@
 
             var errorMessage = $"View '{viewPath}' was not found.";
 
-            this.PrepareContent(errorMessage, HttpContentType.PlainText);
+            this.SetContent(errorMessage, HttpContentType.PlainText);
         }
 
         private string PopulateModel(string viewContent, object model)

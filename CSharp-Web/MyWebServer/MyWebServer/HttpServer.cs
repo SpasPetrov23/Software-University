@@ -144,11 +144,18 @@
             Console.WriteLine(log);
         }
 
-        private async Task WriteResponse(NetworkStream networkStream, HttpResponse response)
+        private async Task WriteResponse(
+            NetworkStream networkStream,
+            HttpResponse response)
         {
             var responseBytes = Encoding.UTF8.GetBytes(response.ToString());
-            //Sends the response as bytes[] towards the server.
+
             await networkStream.WriteAsync(responseBytes);
+
+            if (response.HasContent)
+            {
+                await networkStream.WriteAsync(response.Content);
+            }
         }
     }
 }

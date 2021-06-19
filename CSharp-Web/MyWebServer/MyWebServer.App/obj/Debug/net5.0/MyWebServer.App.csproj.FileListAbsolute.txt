@@ -41,3 +41,8 @@ C:\Users\Spas\Software_University\CSharp-Web\MyWebServer\MyWebServer.App\bin\Deb
 C:\Users\Spas\Software_University\CSharp-Web\MyWebServer\MyWebServer.App\bin\Debug\net5.0\Views\Animals\Wild\Turtles.cshtml
 C:\Users\Spas\Software_University\CSharp-Web\MyWebServer\MyWebServer.App\bin\Debug\net5.0\Views\Cats\Create.cshtml
 C:\Users\Spas\Software_University\CSharp-Web\MyWebServer\MyWebServer.App\bin\Debug\net5.0\Views\Animals\Cats.cshtml
+C:\Users\Spas\Software_University\CSharp-Web\MyWebServer\MyWebServer.App\bin\Debug\net5.0\Views\Home\StaticFiles.cshtml
+C:\Users\Spas\Software_University\CSharp-Web\MyWebServer\MyWebServer.App\bin\Debug\net5.0\wwwroot\css\styles.css
+C:\Users\Spas\Software_University\CSharp-Web\MyWebServer\MyWebServer.App\bin\Debug\net5.0\wwwroot\js\index.js
+C:\Users\Spas\Software_University\CSharp-Web\MyWebServer\MyWebServer.App\bin\Debug\net5.0\wwwroot\img\cat.jpg
+C:\Users\Spas\Software_University\CSharp-Web\MyWebServer\MyWebServer.App\bin\Debug\net5.0\wwwroot\favicon.ico
