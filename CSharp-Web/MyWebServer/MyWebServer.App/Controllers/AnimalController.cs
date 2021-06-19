@@ -6,11 +6,6 @@
 
     public class AnimalsController : Controller
     {
-        public AnimalsController(HttpRequest request)
-            : base(request)
-        {
-        }
-
         public HttpResponse Cats()
         {
             const string nameKey = "Name";
@@ -23,7 +18,7 @@
                 : "the cats";
 
             var catAge = query.ContainsKey(ageKey)
-                ? int.Parse(query [nameKey])
+                ? int.Parse(query[ageKey])
                 : 0;
 
             var viewModel = new CatViewModel

@@ -30,14 +30,23 @@
                 return;
             }
 
-            var viewConent = File.ReadAllText(viewPath);
+            var viewContent = File.ReadAllText(viewPath);
 
             if (model != null)
             {
-                viewConent = this.PopulateModel(viewConent, model);
+                viewContent = this.PopulateModel(viewContent, model);
             }
 
-            this.SetContent(viewConent, HttpContentType.Html);
+            var layoutPath = Path.GetFullPath("./Views/Layout.cshtml");
+
+            if (File.Exists(layoutPath))
+            {
+                var layoutContent = File.ReadAllText(layoutPath);
+
+                viewContent = layoutContent.Replace("@RenderBody()", viewContent);
+            }
+
+            this.SetContent(viewContent, HttpContentType.Html);
         }
 
         private void PrepareMissingViewError(string viewPath)
@@ -62,9 +71,7 @@
 
             foreach (var entry in data)
             {
-                const string openingBrackets = "{{";
-                const string closingBrackers = "}}";
-                viewContent = viewContent.Replace($"{openingBrackets}{entry.Name}{closingBrackers}", entry.Value.ToString());
+                viewContent = viewContent.Replace($"@Model.{entry.Name}", entry.Value.ToString());
             }
 
             return viewContent;

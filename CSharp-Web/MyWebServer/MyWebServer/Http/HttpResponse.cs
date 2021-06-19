@@ -18,9 +18,9 @@
 
         public HttpStatusCode StatusCode { get; protected set; }
 
-        public IDictionary<string, HttpHeader> Headers { get; } = new Dictionary<string, HttpHeader>();
+        public IDictionary<string, HttpHeader> Headers { get; } = new Dictionary<string, HttpHeader>(StringComparer.InvariantCultureIgnoreCase);
 
-        public IDictionary<string, HttpCookie> Cookies { get; } = new Dictionary<string, HttpCookie>();
+        public IDictionary<string, HttpCookie> Cookies { get; } = new Dictionary<string, HttpCookie>(StringComparer.InvariantCultureIgnoreCase);
 
         public byte[] Content { get; protected set; }
 
@@ -38,7 +38,7 @@
             var contentLength = Encoding.UTF8.GetByteCount(content).ToString();
 
             this.AddHeader(HttpHeader.ContentType, contentType);
-            this.AddHeader(HttpHeader.ContentLength, contentType);
+            this.AddHeader(HttpHeader.ContentLength, contentLength);
 
             this.Content = Encoding.UTF8.GetBytes(content);
 

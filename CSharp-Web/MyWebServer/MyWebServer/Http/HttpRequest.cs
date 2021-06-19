@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using System.Web;
 
     public class HttpRequest
     {
@@ -52,7 +53,7 @@
             return new HttpRequest
             {
                 Method = method,
-                Path = url,
+                Path = path,
                 Query = query,
                 Headers = headers,
                 Cookies = cookies,
@@ -60,12 +61,6 @@
                 Body = body,
                 Form = form
             };
-        }
-
-        public override string ToString()
-        {
-            //TODO
-            return null;
         }
 
         private static HttpMethod ParseMethod(string method)
@@ -78,29 +73,31 @@
                 _ => throw new InvalidOperationException($"Method '{method}' is not supported."),
             };
 
-        //Tuple Method, returns 2 values: string + Dictionary
-        private static (string path, Dictionary<string, string> query) ParseUrl(string url)
+        private static (string, Dictionary<string, string>) ParseUrl(string url)
         {
             var urlParts = url.Split('?', 2);
 
             var path = urlParts[0];
             var query = urlParts.Length > 1
                 ? ParseQuery(urlParts[1])
-                : new Dictionary<string, string>();
+                : new Dictionary<string, string>(StringComparer.InvariantCultureIgnoreCase);
 
             return (path, query);
         }
 
         private static Dictionary<string, string> ParseQuery(string queryString)
-           => queryString
-               .Split('&')
-               .Select(part => part.Split('='))
-               .Where(part => part.Length == 2)
-               .ToDictionary(part => part[0], part => part[1]);
+            => HttpUtility.UrlDecode(queryString)
+                .Split('&')
+                .Select(part => part.Split('='))
+                .Where(part => part.Length == 2)
+                .ToDictionary(
+                    part => part[0],
+                    part => part[1],
+                    StringComparer.InvariantCultureIgnoreCase);
 
         private static Dictionary<string, HttpHeader> ParseHeaders(IEnumerable<string> headerLines)
         {
-            var headerCollection = new Dictionary<string, HttpHeader>();
+            var headerCollection = new Dictionary<string, HttpHeader>(StringComparer.InvariantCultureIgnoreCase);
 
             foreach (var headerLine in headerLines)
             {
@@ -119,7 +116,9 @@
                 var headerName = headerParts[0];
                 var headerValue = headerParts[1].Trim();
 
-                headerCollection.Add(headerName, new HttpHeader(headerName, headerValue));
+                var header = new HttpHeader(headerName, headerValue);
+
+                headerCollection[headerName] = header;
             }
 
             return headerCollection;
@@ -170,7 +169,7 @@
 
         private static Dictionary<string, string> ParseForm(Dictionary<string, HttpHeader> headers, string body)
         {
-            var result = new Dictionary<string, string>();
+            var result = new Dictionary<string, string>(StringComparer.InvariantCultureIgnoreCase);
 
             if (headers.ContainsKey(HttpHeader.ContentType)
                 && headers[HttpHeader.ContentType].Value == HttpContentType.FormUrlEncoded)

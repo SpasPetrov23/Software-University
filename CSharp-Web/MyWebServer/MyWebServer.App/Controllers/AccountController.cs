@@ -6,11 +6,6 @@
 
     public class AccountController : Controller
     {
-        public AccountController(HttpRequest request) 
-            : base(request)
-        {
-        }
-
         public HttpResponse Login()
         {
             var someUserId = "MyUserId"; // should come from the database
@@ -36,6 +31,10 @@
 
             return Text("User is not authenticated!");
         }
+
+        [Authorize]
+        public HttpResponse AuthorizationCheck()
+            => Text($"Current user: {this.User.Id}");
 
         public HttpResponse CookiesCheck()
         {

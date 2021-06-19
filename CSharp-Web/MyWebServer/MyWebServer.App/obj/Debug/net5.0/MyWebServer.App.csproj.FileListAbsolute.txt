@@ -46,3 +46,5 @@ C:\Users\Spas\Software_University\CSharp-Web\MyWebServer\MyWebServer.App\bin\Deb
 C:\Users\Spas\Software_University\CSharp-Web\MyWebServer\MyWebServer.App\bin\Debug\net5.0\wwwroot\js\index.js
 C:\Users\Spas\Software_University\CSharp-Web\MyWebServer\MyWebServer.App\bin\Debug\net5.0\wwwroot\img\cat.jpg
 C:\Users\Spas\Software_University\CSharp-Web\MyWebServer\MyWebServer.App\bin\Debug\net5.0\wwwroot\favicon.ico
+C:\Users\Spas\Software_University\CSharp-Web\MyWebServer\MyWebServer.App\bin\Debug\net5.0\Views\Layout.cshtml
+C:\Users\Spas\Software_University\CSharp-Web\MyWebServer\MyWebServer.App\bin\Debug\net5.0\Views\Dogs\Create.cshtml

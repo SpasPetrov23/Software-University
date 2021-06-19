@@ -9,31 +9,37 @@
     {
         public const string UserSessionKey = "AuthenticatedUserId";
 
-        protected Controller(HttpRequest request) 
-        {
-            this.Request = request;
+        private UserIdentity userIdentity;
 
-            this.User = this.Request.Session.ContainsKey(UserSessionKey)
-                ? new UserIdentity { Id = this.Request.Session[UserSessionKey] }
-                : new();
-        }
-
-        protected HttpRequest Request { get; private init; }
+        protected HttpRequest Request { get; init; }
 
         protected HttpResponse Response { get; private init; } = new HttpResponse(HttpStatusCode.OK);
 
-        protected UserIdentity User { get; private init; } = new UserIdentity();
+        protected UserIdentity User
+        {
+            get
+            {
+                if (this.userIdentity == null)
+                {
+                    this.userIdentity = this.Request.Session.ContainsKey(UserSessionKey)
+                        ? new UserIdentity { Id = this.Request.Session[UserSessionKey] }
+                        : new();
+                }
+
+                return this.userIdentity;
+            }
+        }
 
         protected void SignIn(string userId)
         {
             this.Request.Session[UserSessionKey] = userId;
-            //this.userIdentity = new UserIdentity { Id = userId };
+            this.userIdentity = new UserIdentity { Id = userId };
         }
 
         protected void SignOut()
         {
             this.Request.Session.Remove(UserSessionKey);
-            //this.userIdentity = new();
+            this.userIdentity = new();
         }
 
         protected ActionResult Text(string text)
@@ -46,16 +52,12 @@
             => new RedirectResult(this.Response, location);
 
         protected ActionResult View([CallerMemberName] string viewName ="")
-            => new ViewResult(this.Response, viewName, this.GetControllerName(), null);
+            => new ViewResult(this.Response, viewName, this.GetType().GetControllerName(), null);
 
         protected ActionResult View(string viewName, object model)
-            => new ViewResult(this.Response, viewName, this.GetControllerName(), model);
+            => new ViewResult(this.Response, viewName, this.GetType().GetControllerName(), model);
 
         protected ActionResult View(object model, [CallerMemberName] string viewName = "")
-            => new ViewResult(this.Response, viewName, this.GetControllerName(), model);
-
-        private string GetControllerName()
-            => this.GetType().Name
-                .Replace(nameof(Controller), string.Empty);
+            => new ViewResult(this.Response, viewName, this.GetType().GetControllerName(), model);
     }
 }
