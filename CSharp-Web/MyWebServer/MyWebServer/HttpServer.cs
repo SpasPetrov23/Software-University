@@ -22,7 +22,7 @@
             this.ipAddress = IPAddress.Parse(ipAddress);
             this.port = port;
 
-            listener = new TcpListener(this.ipAddress, this.port);
+            listener = new TcpListener(this.ipAddress, port);
 
             routingTableConfiguration(this.routingTable = new RoutingTable());
         }
@@ -34,7 +34,6 @@
         public HttpServer(Action<IRoutingTable> routingTable) 
             : this(5000, routingTable)
         {
-
         }
 
         public async Task Start()
@@ -42,7 +41,7 @@
             this.listener.Start();
 
             Console.WriteLine($"Server started on port {port}...");
-            Console.WriteLine($"Awaiting requests...");
+            Console.WriteLine("Listening for requests...");
 
             while (true)
             {
@@ -116,7 +115,7 @@
             NetworkStream networkStream, 
             Exception exception)
         {
-            var errorMessage = $"{exception.Message} {Environment.NewLine} {exception.StackTrace}";
+            var errorMessage = $"{exception.Message}{Environment.NewLine}{exception.StackTrace}";
             var errorResponse = HttpResponse.ForError(errorMessage);
 
             await WriteResponse(networkStream, errorResponse);

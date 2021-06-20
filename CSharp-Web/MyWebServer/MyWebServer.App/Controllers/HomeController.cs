@@ -14,6 +14,6 @@
 
         public HttpResponse StaticFiles() => View();
 
-        public HttpResponse Error() => throw new InvalidOperationException();
+        public HttpResponse Error() => throw new InvalidOperationException("Invalid action!");
     }
 }

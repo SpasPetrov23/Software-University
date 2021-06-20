@@ -5,15 +5,14 @@
 
     public abstract class ActionResult : HttpResponse
     {
-        public ActionResult(HttpResponse response) 
+        protected ActionResult(HttpResponse response) 
             : base(response.StatusCode)
         {
             this.Content = response.Content;
+
             this.PrepareHeaders(response.Headers);
             this.PrepareCookies(response.Cookies);
         }
-
-        protected HttpResponse Response { get; private init; }
 
         private void PrepareHeaders(IDictionary<string, HttpHeader> headers)
         {

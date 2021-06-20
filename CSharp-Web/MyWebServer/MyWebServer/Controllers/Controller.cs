@@ -51,7 +51,7 @@
         protected ActionResult Redirect(string location)
             => new RedirectResult(this.Response, location);
 
-        protected ActionResult View([CallerMemberName] string viewName ="")
+        protected ActionResult View([CallerMemberName] string viewName = "")
             => new ViewResult(this.Response, viewName, this.GetType().GetControllerName(), null);
 
         protected ActionResult View(string viewName, object model)

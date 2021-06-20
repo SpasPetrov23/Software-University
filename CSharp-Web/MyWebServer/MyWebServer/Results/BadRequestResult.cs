@@ -2,7 +2,6 @@
 {
     using MyWebServer.Http;
 
-
     public class BadRequestResult : HttpResponse
     {
         public BadRequestResult() 

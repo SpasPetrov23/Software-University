@@ -7,6 +7,7 @@
     public class ViewResult : ActionResult
     {
         private const char PathSeparator = '/';
+
         public ViewResult(
             HttpResponse response, 
             string viewName,

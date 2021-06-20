@@ -9,7 +9,7 @@
     public class HttpResponse
     {
         public HttpResponse(HttpStatusCode statusCode)
-        { 
+        {
             this.StatusCode = statusCode;
 
             this.AddHeader(HttpHeader.Server, "My Web Server");
@@ -63,7 +63,7 @@
             Guard.AgainstNull(name, nameof(name));
             Guard.AgainstNull(value, nameof(value));
 
-            this.Headers[name] =new HttpHeader(name, value);
+            this.Headers[name] = new HttpHeader(name, value);
         }
 
         public void AddCookie(string name, string value)
@@ -72,11 +72,6 @@
             Guard.AgainstNull(value, nameof(value));
 
             this.Cookies[name] = new HttpCookie(name, value);
-        }
-
-        protected virtual string GetContent()
-        {
-            return null;
         }
 
         public override string ToString()

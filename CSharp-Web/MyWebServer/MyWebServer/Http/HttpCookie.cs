@@ -12,11 +12,12 @@
             this.Name = name;
             this.Value = value;
         }
+
         public string Name { get; init; }
 
-        public string Value { get; init; }
+        public string Value { get; private set; }
 
         public override string ToString()
-        => $"{this.Name}={this.Value}";
+            => $"{this.Name}={this.Value}";
     }
 }
