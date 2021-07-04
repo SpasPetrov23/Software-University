@@ -1,2 +1,2 @@
 # Software_University
-Exercises done during SoftUni studying.
+Exercises done during SoftUni studying..
